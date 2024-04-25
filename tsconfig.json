@@ -1,4 +1,4 @@
-{
+{   
     "compileOnSave": false,
     "compilerOptions": {
         "module": "CommonJS",
@@ -23,6 +23,8 @@
             "@/*": ["*"]
         }
     },
-    "include": ["./src/**/*", "src/schemas/.ts"],
-    "exclude": ["node_modules"]
+    "include": ["src/**/*", "src/schemas/.ts"],
+    "exclude": [
+        "node_modules"
+    ]
 }
