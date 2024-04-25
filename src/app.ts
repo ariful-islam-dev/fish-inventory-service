@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import morgan from "morgan";
-import { createInventory } from "./controllers";
+import { createInventory, getInventories } from "./controllers";
 
 const app = express();
 
@@ -12,12 +12,7 @@ app.get("/health", (req, res) => {
 });
 
 // Routes
-app.get("/inventories", (req: Request, res: Response, next: NextFunction) => {
-  res.status(200).json({
-    code: 200,
-    message: "Get All Inventories",
-  });
-});
+app.get("/inventories", getInventories);
 
 app.post("/inventories", createInventory);
 // 404 Error

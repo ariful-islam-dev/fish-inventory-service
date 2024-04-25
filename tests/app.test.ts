@@ -7,10 +7,17 @@ describe("POST /inventories", () => {
     await request(app)
       .post("/inventories")
       .send({
-        productId: "product127",
-        sku: "SL-007",
+        productId: "product129",
+        sku: "SL-009",
         quantity: 0
       })
       .expect(201);
   });
+
+
+  it("should all inventories", async () => {
+    await request(app)
+      .get("/inventories")
+      .expect(200);
+  })
 });
