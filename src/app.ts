@@ -1,7 +1,7 @@
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import { createInventory, getInventories, getInventoryById } from "./controllers";
+import { createInventory, getInventories, getInventoryById, updateInventory } from "./controllers";
 
 const app = express();
 
@@ -16,7 +16,9 @@ app.get("/inventories", getInventories);
 
 app.post("/inventories", createInventory);
 
-app.get("/inventories/:id", getInventoryById)
+app.get("/inventories/:id", getInventoryById);
+
+app.put("/inventories/:id", updateInventory)
 // 404 Error
 app.use((req, res, next) => {
   res.status(404).json({ code: 404, message: " Resource Not Found" });

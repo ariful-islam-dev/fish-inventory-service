@@ -35,8 +35,18 @@ describe("/inventories/:id", async()=>{
     await request(app)
       .get("/inventories/clveidnc00000ptora5edw5ow")
       .expect(200);
-      // .then((res)=>{
-      //   expect(res.body).to.have.property("id", 1)
-      // })
+      
+  })
+
+  it("should update inventory by id", async()=>{
+    await request(app)
+      .put("/inventories/clveidnc00000ptora5edw5ow")
+      .send({
+        
+          quantity: 10,
+          actionType:"IN"
+      
+      })
+      .expect(200);
   })
 })
