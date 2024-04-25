@@ -2,16 +2,22 @@ import request from "supertest";
 import app from "../src/app";
 import { describe, it } from "node:test";
 
-describe("POST /inventories", () => {
+
+describe("inventories", () => {
   it("should create a new inventory", async () => {
+
+    // const expect = chai.expect;
     await request(app)
       .post("/inventories")
       .send({
-        productId: "product129",
-        sku: "SL-009",
+        productId: "product133",
+        sku: "SL-033",
         quantity: 0
       })
       .expect(201);
+      // .then((res) => {
+      //   expect(res.text).to.equal("Inventory Created");
+      // })
   });
 
 
@@ -21,3 +27,16 @@ describe("POST /inventories", () => {
       .expect(200);
   })
 });
+
+describe("/inventories/:id", async()=>{
+
+  it("should get inventory by id", async()=>{
+    // const expect = chai.expect;
+    await request(app)
+      .get("/inventories/clveidnc00000ptora5edw5ow")
+      .expect(200);
+      // .then((res)=>{
+      //   expect(res.body).to.have.property("id", 1)
+      // })
+  })
+})
