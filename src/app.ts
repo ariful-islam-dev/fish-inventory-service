@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import { createInventory, deleteInventory, getInventories, getInventoryById, updateInventory } from "../../inventory/src/controllers";
+import { createInventory, deleteInventory, getInventories, getInventoryById, updateInventory } from "./controllers";
 
 const app = express();
 
