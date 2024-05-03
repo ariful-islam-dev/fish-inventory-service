@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../src/app";
+import app from "../../fish/src/app";
 import { describe, it } from "node:test";
 
 
@@ -10,8 +10,8 @@ describe("inventories", () => {
     await request(app)
       .post("/inventories")
       .send({
-        productId: "product133",
-        sku: "SL-033",
+        productId: "product001",
+        sku: "SL-041",
         quantity: 0
       })
       .expect(201);

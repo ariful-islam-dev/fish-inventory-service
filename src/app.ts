@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import { createInventory, getInventories, getInventoryById, updateInventory } from "./controllers";
+import { createInventory, deleteInventory, getInventories, getInventoryById, updateInventory } from "../../inventory/src/controllers";
 
 const app = express();
 
@@ -18,7 +18,9 @@ app.post("/inventories", createInventory);
 
 app.get("/inventories/:id", getInventoryById);
 
-app.put("/inventories/:id", updateInventory)
+app.put("/inventories/:id", updateInventory);
+
+app.delete("/inventories/:id", deleteInventory)
 // 404 Error
 app.use((req, res, next) => {
   res.status(404).json({ code: 404, message: " Resource Not Found" });
