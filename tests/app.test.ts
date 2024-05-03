@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../../fish/src/app";
+import app from "../src/app";
 import { describe, it } from "node:test";
 
 
