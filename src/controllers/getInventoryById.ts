@@ -27,6 +27,7 @@ const getInventoryById = async (
                 message: "Inventory not found"
             })
         }
+        inventory['link']=`/inventories/${inventory.id}`
 
         res.status(200).json({
             code: 200,

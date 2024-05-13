@@ -40,6 +40,13 @@ const updateInventory = async (
                 createdAt: "desc"
             }
         });
+        // Check has product inventory stock
+        if(parseBody.data.actionType === "OUT" && parseBody.data.quantity > inventory.quantity){
+            return res.status(400).json({
+                code: 400,
+                message: "Product inventory stock is not enough"
+            })
+        }
 
         // calculate the new quantity
         let newQuantity = inventory.quantity;

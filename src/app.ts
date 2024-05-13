@@ -6,6 +6,13 @@ import { createInventory, deleteInventory, getInventories, getInventoryById, upd
 const app = express();
 
 app.use([express.json(), cors(), morgan("dev")]);
+// Middleware to set CORS headers
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });

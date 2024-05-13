@@ -44,7 +44,7 @@ const getInventories = async (
           data: data,
           pagination,
           links
-        }
+        } 
         res.status(200).json(response);
     }catch(error){
         next(error)

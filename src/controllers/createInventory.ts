@@ -34,6 +34,7 @@ const createInventory = async (
         quantity: true,
       },
     });
+    inventory['link']=`/inventories/${inventory.id}`
     return res.status(201).json({
       code: 201,
       message: "Inventory Created",
