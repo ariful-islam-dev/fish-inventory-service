@@ -3,12 +3,12 @@ name: Test Using Mocha
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     services:
       postgres:
-        image: postgres:13
+        image: postgres:latest
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
