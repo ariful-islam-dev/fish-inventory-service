@@ -1,15 +1,15 @@
 import { NextFunction, Request, Response } from "express";
 import prisma from "../../prisma";
 
-const deleteInventory = async (req: Request, res: Response, next:NextFunction) => {
-    try{
-        const {id} = req.params
+const deleteInventory = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id } = req.params
         const inventory = await prisma.inventory.findUnique({
             where: {
                 id
             }
         })
-        if(!inventory){
+        if (!inventory) {
             return res.status(404).json({
                 code: 404,
                 message: "Inventory not found"
@@ -20,7 +20,7 @@ const deleteInventory = async (req: Request, res: Response, next:NextFunction) =
                 inventoryId: id
             }
         })
-         await prisma.inventory.delete({
+        await prisma.inventory.delete({
             where: {
                 id
             }
@@ -31,7 +31,7 @@ const deleteInventory = async (req: Request, res: Response, next:NextFunction) =
             message: "Inventory Deleted Successfully",
             data: inventory
         })
-    }catch(err){
+    } catch (err) {
         next(err)
     }
 }
