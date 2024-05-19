@@ -1,5 +1,9 @@
 name: Test Using Mocha
 
+env:
+  DATABASE_URL: ${{secrets.DATABASE_URL}}
+  NODE_ENV: "production"
+
 on: push
 
 jobs:
@@ -11,9 +15,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "20"
+      - name: Print variable
+        run: echo $DATABASE_URL
       - name: Install Dependencies
         run: yarn --frozen-lockfile
       - name: Run Tests
-        env:
-          SECRET_VAR: ${{secrets.DATABASE_URL}}
         run: yarn test
