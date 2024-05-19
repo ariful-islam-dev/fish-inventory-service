@@ -14,4 +14,6 @@ jobs:
       - name: Install Dependencies
         run: yarn --frozen-lockfile
       - name: Run Tests
+        env:
+          SECRETE_VAR: ${{secretes.DATABASE_URL}}
         run: yarn test
